@@ -40,5 +40,57 @@ document.addEventListener("DOMContentLoaded", function() {
 })
 
 
+// Recap Array
+
+let arr = ['primo', 'secondo', 'terzo'];
+
+arr.forEach(el => console.log(el)) // output: primo secondo terzo 
+let arrFilter = arr.filter(el => el.length > 5);
+let arrFind = arr.find(el => el.length > 5);
+let arrMap = arr.map(el => el + '!!!');
+
+console.log(arr); // output: ['primo', 'secondo', 'terzo']
+console.log(arrFilter); // output: ['secondo']
+console.log(arrFind); // output: 'secondo'
+console.log(arrMap); // output: ['primo!!!', 'secondo!!!', 'terzo!!!']
 
 
+// Destrutturazione 
+
+let obj = {id: 1, name: 'John', lastName: 'Smith'}
+let arr = ['primo', 'secondo'];
+/* let id = obj.id;
+let name = obj.name;
+let lastName = obj.lastName; */
+const {lastName, name} = obj
+/* let x = arr[0];
+let y = arr[1]; */
+const [y, x] = arr;
+
+// Object
+
+let obj = {id: 1, name: 'John', lastName: 'Smith'} // object literal
+
+class Persona {
+    nome;
+    cognome;
+    eta;
+
+    constructor(nome, cognome, eta) {
+        this.nome = nome;
+        this.cognome = cognome;
+        this.eta = eta;
+    }
+}
+
+let p1 = new Persona('Mario', 'Rossi', '22');
+let p2 = new Persona('Giuseppe', 'Verdi', '36');
+
+function Animal(nome, cognome, eta) {
+    this.nome = nome;
+    this.cognome= cognome
+    this.eta = eta;
+}
+
+let a1 = new Animal('Mario', 'Rossi', '22')
+let a2 = new Animal('Giuseppe', 'Verdi', '36')
