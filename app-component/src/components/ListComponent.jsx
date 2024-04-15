@@ -8,7 +8,7 @@ export default function ListComponent(props) {
     <Container className="my-3">
     <h1>{props.title} Tot. {props.utenti.length}</h1>
       <ListGroup>
-        {props.utenti.map((u,i) => <ListGroup.Item key={i}>{u.name} {u.lastName}</ListGroup.Item>)}
+        {props.utenti.map((u,i) => <ListGroup.Item key={i}>{u.name} {u.lastName} <button onClick={() => props.deleteUser(u)}>x</button></ListGroup.Item>)}
         
       </ListGroup>
     </Container>

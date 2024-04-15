@@ -94,3 +94,15 @@ function Animal(nome, cognome, eta) {
 
 let a1 = new Animal('Mario', 'Rossi', '22')
 let a2 = new Animal('Giuseppe', 'Verdi', '36')
+
+
+// Function
+let func = function() {
+    return 'sono una funzione';
+}
+
+let test = func;
+console.log(test()); // undefind - sono una funzione - corpo della funzione
+
+
+[].forEach(()=> console.log('test'))
