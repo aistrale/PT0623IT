@@ -11,7 +11,9 @@ const UrlPostsAPI = 'https://jsonplaceholder.typicode.com/posts/';
 export default function UserList() {
     const [users, setUsers] = useState([]);
     const [posts, setPosts] = useState([]);
-    const [userSelected, setUserSelected] = useState(0)
+    const [comments, setComments] = useState([]);
+    const [userSelected, setUserSelected] = useState(0);
+    const [postSelected, setPostSelected] = useState(0);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
 
@@ -50,9 +52,28 @@ export default function UserList() {
             })
     }, [userSelected]);
 
+    useEffect(() => {
+      //https://jsonplaceholder.typicode.com/posts/     0     /comments
+      if(postSelected !== 0) {
+        fetch(UrlPostsAPI + postSelected + '/comments')
+            .then(response => response.json())
+            .then(json => {
+                setComments(json);
+            })
+        }
+    }, [postSelected])
+    
+
     const handleChangeUser = (e) => {
         //console.log(e.target.value);
         setUserSelected(e.target.value)
+        //setComments([]);
+        setPostSelected(0);
+    }
+
+    const handleChangePost = (e) => {
+        //console.log(e.target.value);
+        setPostSelected(e.target.value)
     }
 
   return (
@@ -71,14 +92,17 @@ export default function UserList() {
         {/* <ListGroup>
             {users.map(user => <ListGroup.Item>{user.name}</ListGroup.Item>)}
         </ListGroup> */}
-        <Form.Select aria-label="Default select example" name='user' onChange={handleChangeUser}>
+        <Form.Select className='my-3' aria-label="Default select example" name='user' onChange={handleChangeUser}>
             <option>Open this select menu</option>
             {users.map(user => <option value={user.id}>{user.name}</option>)}
         </Form.Select>
-        <Form.Select aria-label="Default select example">
+        <Form.Select className='my-3' aria-label="Default select example" onChange={handleChangePost}>
             <option>Open this select menu</option>
-            {posts.map(post => <option value="1">{post.title}</option>)}
+            {posts.map(post => <option value={post.id}>{post.title}</option>)}
         </Form.Select>
+        <ListGroup className='my-3'>
+            {comments.map(comment => <ListGroup.Item>{comment.name} - {comment.email}</ListGroup.Item>)}
+        </ListGroup>
     </Container>
   )
 }
