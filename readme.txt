@@ -13,3 +13,4 @@ npm install react-router-dom
 
 cd my-app
 npm start
+npm run test

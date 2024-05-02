@@ -13,7 +13,7 @@ export default function HeaderComponent() {
             {/* <Nav.Link href="/about">About</Nav.Link> */}
             <Link className="nav-link" to="/about">About</Link>
             {/* <Nav.Link href="/users">Users</Nav.Link> */}
-            <Link className="nav-link" to="/users">Users</Link>
+            <Link className="nav-link" to="/users" title="users">Users</Link>
             {/* <Nav.Link href="/contact">Contact</Nav.Link> */}
             <Link className="nav-link" to="/contact">Contact</Link>
         </Nav>
