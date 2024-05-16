@@ -76,9 +76,6 @@ app.delete('/users/:id', async (req, res) => {
     }
 })
 
-
-
-
 async function start() {
     try {
         // Connection String
