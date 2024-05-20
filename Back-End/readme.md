@@ -6,6 +6,7 @@ Cors -> https://github.com/expressjs/cors
 MongoDB -> https://www.mongodb.com/
 MongoDB Compass -> https://www.mongodb.com/products/compass/
 Mongoose -> https://mongoosejs.com/
+DotEnv -> https://www.npmjs.com/package/dotenv
 
 
 
@@ -17,3 +18,4 @@ Mongoose -> https://mongoosejs.com/
 -> npm install express --save
 -> npm install cors
 -> npm install mongoose --save
+-> npm install dotenv --save
