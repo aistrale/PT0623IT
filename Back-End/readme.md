@@ -7,7 +7,11 @@ MongoDB -> https://www.mongodb.com/
 MongoDB Compass -> https://www.mongodb.com/products/compass/
 Mongoose -> https://mongoosejs.com/
 DotEnv -> https://www.npmjs.com/package/dotenv
-
+Multer -> https://expressjs.com/en/resources/middleware/multer.html
+Cloudinary -> https://cloudinary.com/
+Multer Storage Cloudinary -> https://www.npmjs.com/package/multer-storage-cloudinary
+sendgrid -> https://sendgrid.com/
+sendgrid -> https://www.twilio.com/docs/sendgrid/for-developers/sending-email/quickstart-nodejs
 
 
 
@@ -19,3 +23,6 @@ DotEnv -> https://www.npmjs.com/package/dotenv
 -> npm install cors
 -> npm install mongoose --save
 -> npm install dotenv --save
+-> npm install --save multer
+-> npm install cloudinary
+-> npm install multer-storage-cloudinary

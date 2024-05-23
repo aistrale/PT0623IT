@@ -4,6 +4,7 @@ function errorHandler(err, req, res, next) {
     res.status(500).send("Sono il middleware errorHandler!! " + "Err: " + e);
 }
 
+
 function pageNotFoundHandler(req, res, next) {
     console.log("Error!!!")
     res.status(404).send('Page not found');
