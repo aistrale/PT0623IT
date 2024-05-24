@@ -49,9 +49,9 @@ const upload = multer({ storage: storage, fileFilter: fileFilter }) // Setto la 
 
 // Utilizzo di Cloudinary 
 cloudinary.config({ 
-  cloud_name: 'dvymthoja', 
-  api_key: '579949874516564', 
-  api_secret: 'CNaELVH4XI2idgyJqPH72wgDjyY' 
+  cloud_name: process.env.CLOUD_NAME, 
+  api_key: process.env.CLOUDINARY_API_KEY, 
+  api_secret: process.env.CLOUDINARY_API_SECRET_KEY 
 });
 
 const storageCloud = new CloudinaryStorage({
@@ -83,26 +83,6 @@ app.post('/upload-cloud', cloud.single('uploaded_file_cloud'), async (req, res) 
         path: file.path
     }
 
-app.get('/email', async (req, res) => {
-    // Utilizzo di SendGrid
-    const msg = {
-        to: 'test@example.com', // Change to your recipient
-        from: 'test@example.com', // Change to your verified sender
-        subject: 'Sending with SendGrid is Fun',
-        text: 'and easy to do anywhere, even with Node.js',
-        html: '<strong>and easy to do anywhere, even with Node.js</strong>',
-    }
-    sgMail
-    .send(msg)
-    .then((response) => {
-      console.log(response[0].statusCode)
-      console.log(response[0].headers)
-    })
-    .catch((error) => {
-      console.error(error)
-    })
-})
-
     try{
         const newImage = imageModel(obj);
         const imageSave = await newImage.save();
@@ -110,6 +90,34 @@ app.get('/email', async (req, res) => {
     } catch (error) {
         return res.status(500).json({message: 'Problemi nel salvataggio nel cloud', error: error})
     }
+})
+
+app.get('/send-email', async (req, res) => { 
+  console.log("send-email");
+  const msg = {
+    to: 'example@example.com', // Change to your recipient
+    from: 'example@example.com', // Change to your verified sender
+    subject: 'Sending with SendGrid is Fun',
+    text: 'and easy to do anywhere, even with Node.js',
+    html: '<strong>and easy to do anywhere, even with Node.js</strong>',
+}
+  try {
+    await sgMail
+    .send(msg)
+    .then((response) => {
+      console.log(response[0].statusCode)
+      console.log(response[0].headers)
+      return res.status(response[0].statusCode).json({...response[0]})
+    })
+    .catch((error) => {
+      console.error(error)
+      return res.status(response[0].statusCode).json({error: {...error}})
+    }) 
+  } catch(error) {
+      console.error(error)
+      return res.status(404).json({error: "Errore Try!!!"})
+    }
+  
 })
 
 

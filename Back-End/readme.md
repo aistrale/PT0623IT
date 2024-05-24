@@ -14,7 +14,6 @@ sendgrid -> https://sendgrid.com/
 sendgrid -> https://www.twilio.com/docs/sendgrid/for-developers/sending-email/quickstart-nodejs
 
 
-
 -> node -v
 -> npm -v
 -> npm init -y
@@ -26,3 +25,4 @@ sendgrid -> https://www.twilio.com/docs/sendgrid/for-developers/sending-email/qu
 -> npm install --save multer
 -> npm install cloudinary
 -> npm install multer-storage-cloudinary
+-> npm install --save @sendgrid/mail
