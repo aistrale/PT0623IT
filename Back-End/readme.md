@@ -12,6 +12,7 @@ Cloudinary -> https://cloudinary.com/
 Multer Storage Cloudinary -> https://www.npmjs.com/package/multer-storage-cloudinary
 sendgrid -> https://sendgrid.com/
 sendgrid -> https://www.twilio.com/docs/sendgrid/for-developers/sending-email/quickstart-nodejs
+dbdiagram -> https://dbdiagram.io/
 
 
 -> node -v

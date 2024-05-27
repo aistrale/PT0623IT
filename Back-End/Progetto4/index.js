@@ -5,7 +5,7 @@ const multer  = require('multer')
 const cloudinary = require('cloudinary').v2;
 const { CloudinaryStorage } = require('multer-storage-cloudinary');
 const sgMail = require('@sendgrid/mail')
-sgMail.setApiKey(process.env.SENDGRID_API_KEY)
+sgMail.setApiKey(process.env.APY_KEY_SENDGRID)
 require('dotenv').config();
 
 const app = express();
@@ -96,7 +96,7 @@ app.get('/send-email', async (req, res) => {
   console.log("send-email");
   const msg = {
     to: 'example@example.com', // Change to your recipient
-    from: 'example@example.com', // Change to your verified sender
+    from: 'vostramail@vostramail.it', // Change to your verified sender
     subject: 'Sending with SendGrid is Fun',
     text: 'and easy to do anywhere, even with Node.js',
     html: '<strong>and easy to do anywhere, even with Node.js</strong>',
