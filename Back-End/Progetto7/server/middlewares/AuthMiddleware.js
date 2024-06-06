@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const jwtSecretKey = 'jwt-secret-key';
+const jwtSecretKey = process.env.JWT_SECRET_KEY;
 
 //Middlewares
 const authMiddleware = (req, res, next) => {
@@ -9,7 +9,7 @@ const authMiddleware = (req, res, next) => {
     if(!token) {
         return res.status(401).json({message: 'Invalid Token'})
     } else {
-        token = token.split(' ')[1]
+        token = token.split(' ')[1]; // {Authorization: Bearer jdlahgladkhlkahlkgfhaklhflkahdglkhdakhgkadh}
         jwt.verify(token, jwtSecretKey, (err, data) => {
             if(err) {
                 return res.status(401).json({message: 'Invalid Token'})

@@ -5,7 +5,7 @@ const saltRounds = 10;
 const jwt = require('jsonwebtoken');
 const passport = require('passport');
 
-const jwtSecretKey = 'jwt-secret-key';
+const jwtSecretKey = process.env.JWT_SECRET_KEY;
 
 // Model
 const UserModel = require('../models/UserModel');
@@ -77,7 +77,6 @@ router.post('/auth/login', async (req, res) => {
                     username: userLogin.username,
                     fullname: userLogin.fullname,
                     email: userLogin.email
-
                 }, jwtSecretKey , { expiresIn: '1h' });
             return res.status(200).json(token);
         } else {
@@ -100,7 +99,7 @@ router.get('/auth/callback',
   function(req, res, next) {
     // Successful authentication, redirect home.
     try {
-        res.redirect(`http://localhost:3000?accessToken=${req.user.accessToken}`)
+        res.redirect(`${process.env.AUTH_CALLBACK_URL}?accessToken=${req.user.accessToken}`)
     } catch(err) {
         next(err)
     }

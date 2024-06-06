@@ -17,6 +17,7 @@ bcrypt -> https://www.npmjs.com/package/bcrypt
 JWT -> https://jwt.io/
 Json Web Token -> https://www.npmjs.com/package/jsonwebtoken
 Passport -> https://www.passportjs.org/
+GitIgnore -> https://www.npmjs.com/package/gitignore
 
 
 -> node -v
@@ -35,6 +36,7 @@ Passport -> https://www.passportjs.org/
 -> npm install jsonwebtoken
 -> npm install passport
 -> npm install passport-google-oauth20
+-> npm install -g gitignore  (Da installare solo una volta perche lo installo globalmente)
 
 
 

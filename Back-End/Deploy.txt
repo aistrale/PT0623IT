@@ -1,0 +1,24 @@
+-> Vercel -> React
+
+https://vercel.com/
+
+1 -> Click Start Deploying
+2 -> Ghithub
+3 -> Authorize Vercel
+4 -> Select Git Repository
+5 -> Select Git Project
+6 -> Deploy
+7 -> Congratulations!!!
+8 -> Continue to Dashboard
+
+
+-> Heroku -> NodeJS
+
+https://www.heroku.com/
+
+1 -> Register or Login
+2 -> Create New App
+3 -> Deploy page
+4 -> Deployment method -> Connect to GitHub
+5 -> Deploy Branch
+6 -> Create Procfile -> web:node nomefile.js

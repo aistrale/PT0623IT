@@ -6,8 +6,8 @@ const passport = require('passport');
 const googleStategy = require('./middlewares/OAuthMiddleware')
 
 const app = express();
-const port = 3001;
-const dbName = 'ProgettoDBAuth';
+const port = process.env.PORT || 3001;
+const dbName = process.env.DB_NAME;
 
 // Middlewares start
 app.use(cors());
